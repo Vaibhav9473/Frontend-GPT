@@ -120,3 +120,54 @@ input:focus {
     background-color: rgba(180, 180, 180, 0.1);
     border-radius: 6px;
 }
+
+@media (max-width: 768px) {
+
+  .chatwindow {
+    width: 100%;
+    padding: 0;
+  }
+
+  .navbar span {
+    margin: 1rem;
+    font-size: 14px;
+  }
+
+  .usericon {
+    margin: 1rem;
+  }
+
+  .inputbox {
+    padding: 0 10px;
+  }
+
+  input {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  #submit {
+    right: 20px;
+    font-size: 18px;
+  }
+
+  .info {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}
+
+
+.menu-btn {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* show only on mobile */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+}

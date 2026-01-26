@@ -21,6 +21,8 @@ const [currThreadId, setCurrThreadId] = useState(uuidv1());
 const [preChats, setPreChats] = useState([]); // stores all chats of threads
 const [newChat, setNewChat] = useState(true);
 const [allThreads, setAllThreads] = useState([])
+const [sidebarOpen, setSidebarOpen] = useState(false);
+
 
 const providerValues = {
   prompt, setPrompt,
@@ -28,7 +30,8 @@ const providerValues = {
   currThreadId, setCurrThreadId,
   preChats, setPreChats,
   newChat, setNewChat,
-  allThreads, setAllThreads
+  allThreads, setAllThreads,
+  sidebarOpen, setSidebarOpen 
 };
   return (
     <BrowserRouter>
@@ -47,6 +50,13 @@ const providerValues = {
           element={
             <div className="main">
               <MyContext.Provider value={providerValues}>
+                {sidebarOpen && (
+                  <div
+                    className="overlay"
+                    onClick={() => setSidebarOpen(false)}
+                  ></div>
+                )}
+
                 <Sidebar />
                 <ChatWindow />
               </MyContext.Provider>

@@ -4,8 +4,10 @@ import { MyContext } from './MyContext.jsx';
 import {v1 as uuidv1} from 'uuid';
 
 
+
+
 function Sidebar() {
- const {allThreads, setAllThreads, setNewChat, setPrompt, setReply, setCurrThreadId, setPreChats, currThreadId} = useContext(MyContext);
+ const {allThreads, setAllThreads, setNewChat, setPrompt, setReply, setCurrThreadId, setPreChats, currThreadId, sidebarOpen} = useContext(MyContext);
   
  const getallThreads = async () =>{
    try {
@@ -67,7 +69,7 @@ const deleteThread = async (threadId) =>{
 }
 
     return (
-        <section className='sidebar'>
+        <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
             <button onClick={createNewChat}>
                 <img src="src/assets/blacklogo.png" alt="logo" className='logo' />
                 <span>new<i className="fa-solid fa-pen-to-square"></i></span>
