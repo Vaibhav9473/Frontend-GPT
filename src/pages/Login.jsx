@@ -14,7 +14,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:8080/api/auth/login", {
+    const res = await fetch("https://ai-chat-backend-mlwt.onrender.com/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
@@ -35,6 +35,13 @@ function Login() {
   return (
     <div className="auth-page">
       <form onSubmit={handleLogin}>
+        <button
+          type="button"
+          className="back-home"
+          onClick={() => navigate("/")}
+        >
+          ← Back to Chat
+        </button>
         <h2>Login</h2>
 
         <input

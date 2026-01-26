@@ -1,7 +1,11 @@
 .chats {
-width: 700px;
-overflow-y: scroll;
-padding: 8rem;
+  width: 100%;
+  max-width: 700px;
+  overflow-y: auto;
+  padding: 4rem 2rem;
+  margin: 0 auto;
+overflow-x: hidden;   
+  box-sizing: border-box;
 }
 
 .userdiv {
@@ -30,4 +34,32 @@ font-size: 0.9rem;
 
 pre {
     white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+
+  .chats {
+    max-width: 100%;
+    padding: 1.5rem 0.8rem;
+  }
+
+  .userdiv {
+    font-size: 14px;
+  }
+
+  .usermessage {
+    margin-left: 0;           
+    max-width: 85%;
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .gptdiv {
+    font-size: 14px;
+  }
+
+  pre {
+    font-size: 13px;
+    overflow-x: auto;
+  }
 }
