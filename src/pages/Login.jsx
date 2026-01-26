@@ -10,11 +10,14 @@ function Login() {
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  
+  const API = import.meta.env.VITE_API_URL;
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("https://ai-chat-backend-mlwt.onrender.com/api/auth/login", {
+    const res = await fetch(`${API}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })

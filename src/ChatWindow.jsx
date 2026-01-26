@@ -20,6 +20,7 @@ function ChatWindow() {
 
   const { token, logout } = useContext(AuthContext);
 
+  const API = import.meta.env.VITE_API_URL;
 
 
   const getReply = async () => {
@@ -44,7 +45,7 @@ function ChatWindow() {
     };
 
     try {
-      const response = await fetch("https://ai-chat-backend-mlwt.onrender.com/api/chat", options)
+      const response = await fetch(`${API}/api/chat`, options)
       const res = await response.json()
       console.log(res);
       setReply(res.reply);

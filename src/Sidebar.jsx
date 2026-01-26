@@ -8,10 +8,12 @@ import {v1 as uuidv1} from 'uuid';
 
 function Sidebar() {
  const {allThreads, setAllThreads, setNewChat, setPrompt, setReply, setCurrThreadId, setPreChats, currThreadId, sidebarOpen} = useContext(MyContext);
+ const API = import.meta.env.VITE_API_URL;
+
   
  const getallThreads = async () =>{
    try {
-    const response = await fetch("https://ai-chat-backend-mlwt.onrender.com/api/thread");
+    const response = await fetch(`${API}/api/thread`);
     const res = await response.json();
     const filteredData = res.map(thread => ({ threadId: thread.threadId, title: thread.title}));
     setAllThreads(filteredData);
@@ -41,7 +43,7 @@ const changeThread = async (newThreadId) =>{
 
   try {
    const response = await fetch(
-    `https://ai-chat-backend-mlwt.onrender.com/api/thread/${newThreadId}`
+    `${API}/api/thread/${newThreadId}`
 );
    const res = await response.json();
    setPreChats(res);
@@ -54,7 +56,7 @@ const changeThread = async (newThreadId) =>{
 
 const deleteThread = async (threadId) =>{
   try {
-    const response = await fetch(`https://ai-chat-backend-mlwt.onrender.com/api/thread/${threadId}`, {method: "DELETE"});
+    const response = await fetch(`${API}/api/thread/${threadId}`, {method: "DELETE"});
     const res = await response.json();
     console.log(res);
     setAllThreads(pre => pre.filter(thread => thread.threadId !== threadId));

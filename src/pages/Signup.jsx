@@ -11,13 +11,15 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const API = import.meta.env.VITE_API_URL;
+
 
   const handleSignup = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const res = await fetch("https://ai-chat-backend-mlwt.onrender.com/api/auth/signup", {
+      const res = await fetch(`${API}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password })
