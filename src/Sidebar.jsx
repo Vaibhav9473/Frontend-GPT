@@ -73,7 +73,7 @@ const deleteThread = async (threadId) =>{
     return (
         <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
             <button onClick={createNewChat}>
-                <img src="src/assets/blacklogo.png" alt="logo" className='logo' />
+                <img src="/blacklogo.png" alt="logo" className='logo' />
                 <span>new<i className="fa-solid fa-pen-to-square"></i></span>
             </button>
 
